@@ -8,6 +8,8 @@
 
 # Since we have installed new ROS packages in our Dockerfile, we need to source ROS again.
 source /opt/ros/humble/setup.bash
+# Also source the package we have built, so that we can just run our launchfiles directly
+source install/setup.bash
 # Now recreate old entrypoint
 set -e
 source "${SPACEROS_DIR}/install/setup.bash"

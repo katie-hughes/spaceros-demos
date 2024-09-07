@@ -18,26 +18,24 @@ This package is built upon the base Space ROS docker image, with a few extra ins
 
 One time setup: If you don't have Docker, install it with `sudo apt install docker.io`. You will have to add yourself to the Docker user group with `sudo usermod -aG docker $USER`, then run `newgrp docker` to avoid permission errors with Docker daemon. You will also to run `xhost +local:docker` on your first time to allow Docker to connect to gui-based application such as Gazebo and RViz. You will need to log out and log back in for these changes to take effect on your system.
 
-1. Navigate to the `spaceros_gz_demos/docker` directory.
+1. Navigate to the root `demos` directory. (You will have to run the build script from this directory, otherwise the Dockerfile won't be found -- this is needed for CI, which runs from this location).
 
 2. Build the Docker image locally with
 
-    ```./docker_build.sh```
+    ```./spaceros_gz_demos/build.sh```
 
-3. Start the Docker container with
+3. Run the Docker container with
 
-    ```./docker_start.sh```
+    ```./spaceros_gz_demos/run.sh```
 
 4. Once you have a running container, to get another shell, run 
 
-    ```./docker_shell.sh```
+    ```./spaceros_gz_demos/shell.sh```
 
 ## Running code in the Docker container
-1. Once you are in the Docker container, run `colcon build` (you should be in the `~/spaceros/ws` directory)
+Building the Dockerfile will take care of the necessary `colcon build` and `source install/setup.bash` commands, so it is not necessary to run these again inside of the container.
 
-2. Run `source install/setup.bash`
-
-3. Start one of the demos with `ros2 launch spaceros_gz_demos moon.launch.xml`, `mars.launch.xml`, `enceladus.launch.xml`, or `orbit.launch.xml`.
+Once you are in the Docker container, you can simply launch the demos with `ros2 launch spaceros_gz_demos moon.launch.xml`, `mars.launch.xml`, `enceladus.launch.xml`, or `orbit.launch.xml`.
 
 ## Moon
 Launch the moon demo with the following command:

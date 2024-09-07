@@ -1,5 +1,0 @@
-| /capsule/lidar | sensor_msgs/msg/LaserScan | Laser scan from capsule | 
-| /capsule/lidar/points | sensor_msgs/msg/PointCloud2 | Point cloud from capsule | 
-| /capsule/thrust/pitch | std_msgs/msg/Float64 | Control the pitch of the capsule | 
-| /capsule/thrust/push | std_msgs/msg/Float64 | Control the push of the capsule | 
-| /capsule/thrust/yaw | std_msgs/msg/Float64 | Control the yaw of the capsule | 
